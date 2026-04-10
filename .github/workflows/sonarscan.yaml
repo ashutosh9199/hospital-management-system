@@ -17,6 +17,9 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+        with: 
+          args:
+            -Dsonar.projectKey=ashutosh9199_hospital-management-system_be613aa0-7cfd-4747-b6c8-30ac75c7dd81
 
       - name: SonarQube Quality Gate Check
         id: quality-gate
@@ -24,6 +27,9 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+        with: 
+          args:
+            -Dsonar.projectKey=ashutosh9199_hospital-management-system_be613aa0-7cfd-4747-b6c8-30ac75c7dd81
 
       - name: Send Slack Notification on Failure
         if: failure()
