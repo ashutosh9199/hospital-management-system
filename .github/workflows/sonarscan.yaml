@@ -3,7 +3,6 @@ name: SonarQube Scan & Alert
 on:
   push:
     branches:
-      - actions
 
 jobs:
   sonarqube:
