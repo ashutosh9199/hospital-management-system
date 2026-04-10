@@ -41,24 +41,14 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
  
       - name: Send Slack Notification on Failure
-
         if: failure()
-
         uses: slackapi/slack-github-action@v1.26.0
-
         with:
-
           payload: |
-
             {
-
-              "text": "Ashuthos says that: SonarQube Scan Failed!* \nProject: ${{ github.repository }}\nStatus: Vulnerabilities or Quality Gate issues found.\nCheck the logs: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-
+              "text": "SonarQube Scan Failed!"
             }
-
         env:
-
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-
           SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
  
